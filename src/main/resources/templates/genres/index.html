@@ -23,7 +23,7 @@
 			<tr>
 				<th>id</th>
 				<th>名前</th>
-				<th></th>
+				<th>ステータス</th>
 				<th></th>
 				<th></th>
 			</tr>
@@ -32,6 +32,7 @@
 			<tr th:each="genre: ${genres}">
 				<td th:text="${genre.id}"></td>
 				<td th:text="${genre.name}"></td>
+				<td th:text="${genre.isStatus}"></td>
 				<td><a th:href="@{/genres/{id}/edit(id=${genre.id})}">編集</a></td>
 				<td>
 					<form th:method="delete" th:action="@{/genres/{id}(id=${genre.id})}">
