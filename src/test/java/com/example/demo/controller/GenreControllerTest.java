@@ -1,5 +1,8 @@
 package com.example.demo.controller;
 
+import static org.hamcrest.CoreMatchers.is;
+import static org.junit.Assert.assertThat;
+import static org.junit.jupiter.api.Assertions.fail;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.view;
@@ -43,6 +46,17 @@ public class GenreControllerTest {
 	@Test
 	public void indexView() throws Exception {
 		mockMvc.perform(get("/genres")).andExpect(status().isOk()).andExpect(view().name("genres/index"));
+	}
+	
+	@Test
+	public void indexFail() {
+		fail("エラーが発生しました!!");
+	}
+	
+	@Test
+	public void check() {
+		String actual = "hello" + " " + "world";
+		assertThat(actual, is("hello world"));
 	}
 	
 	
