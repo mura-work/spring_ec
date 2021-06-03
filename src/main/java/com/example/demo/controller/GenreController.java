@@ -8,6 +8,7 @@ import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import com.example.demo.entity.Genre;
@@ -39,6 +40,12 @@ public class GenreController {
 		genre.setName(form.getName());
 		repository.save(genre);
 		return "redirect:/genres";
+	}
+	
+	@GetMapping("/genres/{id}")
+	public String edit(@PathVariable int id, Model model) {
+		model.addAttribute("genre", service.find(id));
+		return "genres/edit";
 	}
 	
 }
