@@ -20,6 +20,7 @@ public class GenreController {
 	@Autowired
 	GenreRepository repository;
 	
+	@Autowired
 	GenreService service;
 	
 	@GetMapping("/genres")

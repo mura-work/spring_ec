@@ -49,11 +49,6 @@ public class GenreControllerTest {
 	}
 	
 	@Test
-	public void indexFail() {
-		fail("エラーが発生しました!!");
-	}
-	
-	@Test
 	public void check() {
 		String actual = "hello" + " " + "world";
 		assertThat(actual, is("hello world"));
