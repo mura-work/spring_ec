@@ -1,8 +1,5 @@
 package com.example.demo.controller;
 
-import static org.hamcrest.CoreMatchers.is;
-import static org.junit.Assert.assertThat;
-import static org.junit.jupiter.api.Assertions.fail;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.view;
@@ -49,9 +46,13 @@ public class GenreControllerTest {
 	}
 	
 	@Test
-	public void check() {
-		String actual = "hello" + " " + "world";
-		assertThat(actual, is("hello world"));
+	public void edit() throws Exception {
+		mockMvc.perform(get("/genres/1")).andExpect(status().isOk());
+	}
+	
+	@Test
+	public void editView() throws Exception {
+		mockMvc.perform(get("/genres/1")).andExpect(status().isOk()).andExpect(view().name("genres/edit"));
 	}
 	
 	

@@ -45,7 +45,7 @@ public class GenreController {
 	@GetMapping("/genres/{id}")
 	public String edit(@PathVariable int id, Model model) {
 		model.addAttribute("genre", service.find(id));
-		return "genre/edit";
+		return "genres/edit";
 	}
 	
 }
