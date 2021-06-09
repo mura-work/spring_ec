@@ -1,6 +1,5 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org"
-	th:replace="~{/layout/main :: layout(~{::body/content()})}">
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
 <meta charset="UTF-8" />
 <title>Insert title here</title>
@@ -33,6 +32,9 @@
 			<tr th:each="genre: ${genres}">
 				<td th:text="${genre.id}"></td>
 				<td th:text="${genre.name}"></td>
+				<th:block th:each="product: ${genre.products}">
+					<td th:text="${product.name}"></td>
+				</th:block>
 				<td><a th:href="@{/genres/{id}/edit(id=${genre.id})}">編集</a></td>
 				<td>
 					<form th:method="delete" th:action="@{/genres/{id}(id=${genre.id})}">
@@ -42,5 +44,6 @@
 			</tr>
 		</tbody>
 	</table>
+	
 </body>
 </html>
