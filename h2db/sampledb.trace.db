@@ -872,3 +872,7 @@ select * from generes [42102-200]
 org.h2.jdbc.JdbcSQLSyntaxErrorException: テーブル "ITEMS" が見つかりません
 Table "ITEMS" not found; SQL statement:
 INSERT INTO items VALUES (seq_products.NEXTVAL,'みかん', 'シンプルにうまい',100, 1) [42102-200]
+2021-06-09 20:43:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: テーブル "GENRES_PRODUCTS" が見つかりません
+Table "GENRES_PRODUCTS" not found; SQL statement:
+select products0_.genre_id as genre_id1_1_0_, products0_.products_id as products2_1_0_, product1_.id as id1_2_1_, product1_.content as content2_2_1_, product1_.genre_id as genre_id5_2_1_, product1_.name as name3_2_1_, product1_.price as price4_2_1_, genre2_.id as id1_0_2_, genre2_.is_status as is_statu2_0_2_, genre2_.name as name3_0_2_ from genres_products products0_ inner join products product1_ on products0_.products_id=product1_.id left outer join genres genre2_ on product1_.genre_id=genre2_.id where products0_.genre_id=? [42102-200]
