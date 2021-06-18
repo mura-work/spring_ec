@@ -1,10 +1,12 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org" 
+	 xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 <head>
 <meta charset="UTF-8" />
 <title>Insert title here</title>
 </head>
 <body>
+<span th:text="${#authentication.name}"></span>
 	<h3>ジャンル一覧画面</h3>
 	<div th:text="${flash}" ></div>
 	<form method="post" action="/genres">

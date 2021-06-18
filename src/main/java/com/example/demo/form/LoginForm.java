@@ -12,6 +12,14 @@ public class LoginForm extends User {
 	private Integer empId;
 	private String password;
 	
+	private User user;
+	
+//	public LoginForm(Employee emp) {
+//    super(emp.StringEmpId(), emp.getPassword(), emp.getEnable(), true, true,
+//        true, convertGrantedAuthorities(emp.getRoles()));
+//    this.user = user;
+//  }
+	
 	public Integer getEmpId() {
 		return empId;
 	}
