@@ -6,11 +6,13 @@ import org.springframework.security.authentication.UsernamePasswordAuthenticatio
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.AuthenticationException;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
+import org.springframework.stereotype.Component;
 
 import com.example.demo.entity.Employee;
 import com.example.demo.form.LoginForm;
 import com.example.demo.repository.EmployeeRepository;
 
+@Component
 public class LoginAuthenticationProvider implements AuthenticationProvider {
 	@Autowired
 	EmployeeRepository repository;
@@ -24,7 +26,7 @@ public class LoginAuthenticationProvider implements AuthenticationProvider {
 			throw new UsernameNotFoundException("");
 		}
 		
-		Employee emp = repository.findByEmpIdAndPassword(Integer.parseInt(empId), password);
+		Employee emp = repository.findByIdAndPassword(Integer.parseInt(empId), password);
 		
 		if(emp == null) {
 			throw new UsernameNotFoundException("");

@@ -16,7 +16,7 @@ public class LoginLogic implements UserDetailsService {
 
 	@Override
 	public UserDetails loadUserByUsername(String empId) throws UsernameNotFoundException {
-		Employee emp = repository.findByEmpId(Integer.parseInt(empId));
+		Employee emp = repository.getOne(Integer.parseInt(empId));
 		if (emp == null) {
 			throw new UsernameNotFoundException("User" + empId + "アカウントが存在しません");
 		}
