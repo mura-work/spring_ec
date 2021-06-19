@@ -6,7 +6,8 @@
 <title>Insert title here</title>
 </head>
 <body>
-<span th:text="${#authentication.name}"></span>
+<span th:text="${#authentication.principal.password}"></span>
+<a href="logout">ログアウト</a>
 	<h3>ジャンル一覧画面</h3>
 	<div th:text="${flash}" ></div>
 	<form method="post" action="/genres">

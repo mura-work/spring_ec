@@ -3,6 +3,8 @@ package com.example.demo.controller;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
+import org.springframework.security.core.userdetails.User;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -29,9 +31,9 @@ public class GenreController {
 	LoginService loginService;
 	
 	@GetMapping("/genres")
-	public String index(@ModelAttribute GenreForm form, Model model) {
+	public String index(@ModelAttribute GenreForm form, Model model, 
+			@AuthenticationPrincipal User user) {
 		model.addAttribute("genres", repository.findAll());
-		service.memo("memo");
 		loginService.loginUser();
 		return "genres/index";
 	}
