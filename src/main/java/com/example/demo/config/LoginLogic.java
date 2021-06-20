@@ -7,6 +7,7 @@ import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
 import com.example.demo.entity.Employee;
+import com.example.demo.form.LoginForm;
 import com.example.demo.repository.EmployeeRepository;
 
 @Service
@@ -16,11 +17,11 @@ public class LoginLogic implements UserDetailsService {
 
 	@Override
 	public UserDetails loadUserByUsername(String empId) throws UsernameNotFoundException {
-		Employee emp = repository.getOne(Integer.parseInt(empId));
+		Employee emp = repository.findById(Integer.parseInt(empId)).get();
 		if (emp == null) {
 			throw new UsernameNotFoundException("User" + empId + "アカウントが存在しません");
 		}
-		return (UserDetails) emp;
+		return new LoginForm(emp);
 	}
 
 }
