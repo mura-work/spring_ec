@@ -1,10 +1,12 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
 <head>
 <meta charset="UTF-8" />
 <title>Insert title here</title>
 </head>
 <body>
+<span sec:authentication="principal.name"></span>さん
 	<div>編集画面</div>
 	<form th:method="patch" th:action="@{/books/{id}(id=*{id})}" th:object="${employeeForm}">
 		<label>名前</label>
