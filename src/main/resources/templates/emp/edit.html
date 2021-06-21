@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
+<head>
+<meta charset="UTF-8" />
+<title>Insert title here</title>
+</head>
+<body>
+<span sec:authentication="principal.name"></span>さん
+	<div>編集画面</div>
+	<form th:method="patch" th:action="@{/books/{id}(id=*{id})}" th:object="${employeeForm}">
+		<label>名前</label>
+		<input type="text" th:field="*{name}" />
+		<span th:errors="*{name}"></span><br />
+		<label>パスワード</label>
+		<input type="text" th:field="*{password}" />
+		<span th:errors="*{password}"></span><br />
+		<label>メールアドレス</label>
+		<input type="text" th:field="*{email}" />
+		<span th:errors="*{email}"></span><br />
+		<label>権限</label>
+		<input type="text" th:field="*{role}" />
+		<span th:errors="*{role}"></span><br />
+		<input type="submit" value="更新" />
+	</form>
+</body>
+</html>

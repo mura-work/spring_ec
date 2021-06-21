@@ -59,6 +59,8 @@ public class LoginForm extends User {
 	public void setUser(User user) {
 		this.user = user;
 	}
+	
+	
 	public LoginForm(String username, String password, Collection<? extends GrantedAuthority> authorities) {
 		super(username, password, authorities);
 	}

@@ -13,8 +13,5 @@ public class LoginService {
     SecurityContext context = SecurityContextHolder.getContext();
     Authentication authentication = context.getAuthentication();
     UserDetails loginUser = (UserDetails) authentication.getPrincipal();
-    
-//    Employee loginUser = (Employee) authentication.getPrincipal();
-//    log.info("#doService id:{}, name:{}", loginUser.getUser().getId(), loginUser.getUser().getName());
   }
 }
