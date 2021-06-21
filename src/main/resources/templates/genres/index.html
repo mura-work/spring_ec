@@ -10,6 +10,7 @@
 <span th:text="${#authentication.principal.role}"></span>
 <span th:text="${#authentication.principal.empId}"></span>
 <a href="logout">ログアウト</a>
+<a href="/employees">社員一覧</a>
 	<h3>ジャンル一覧画面</h3>
 	<div th:text="${flash}" ></div>
 	<form method="post" action="/genres">

@@ -1,34 +1,27 @@
 package com.example.demo.controller;
 
-import javax.validation.Valid;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.validation.BindingResult;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 
-import com.example.demo.form.RegistForm;
-import com.example.demo.service.RegistService;
+import com.example.demo.service.EmployeeService;
 
 @Controller
 public class EmployeeController {
 	@Autowired
-	RegistService service;
+	EmployeeService service;
 	
-	@GetMapping("/regist")
-	public String regist(@ModelAttribute RegistForm form) {
-		return "emp/regist";
+	@GetMapping("/employees")
+	public String index(Model model) {
+		model.addAttribute("employees", service.findEmpAll());
+		return "emp/index";
 	}
 	
-	@PostMapping("/regist")
-	public String registration(@Valid @ModelAttribute RegistForm form,
-			BindingResult result) {
-		if (result.hasErrors()) {
-			return "emp/regist";
-		}
-		service.register(form);
-		return "redirect:/login";
+	@GetMapping("/employees/{id}/edit")
+	public String edit(@PathVariable int id, Model model) {
+		model.addAttribute("employeeForm", service.findEmp(id));
+		return "emp/edit";
 	}
 }

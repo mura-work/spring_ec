@@ -5,7 +5,29 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<h1>ログイン後</h1>
-	<a href="logout">ログアウト</a>
+	<h3>社員一覧画面</h3>
+	<div th:text="${flash}" ></div>
+	<table>
+		<thead>
+			<tr>
+				<th>ID</th>
+				<th>社員名</th>
+				<th>パスワード</th>
+				<th>メールアドレス</th>
+				<th>権限</th>
+				<th></th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr th:each="emp: ${employees}">
+				<td th:text="${emp.id}"></td>
+				<td th:text="${emp.name}"></td>
+				<td th:text="${emp.password}"></td>
+				<td th:text="${emp.email}"></td>
+				<td th:text="${emp.role}"></td>
+				<td><a th:href="@{/employees/{id}/edit(id=${emp.id})}">編集</a></td>
+			</tr>
+		</tbody>
+	</table>
 </body>
 </html>
