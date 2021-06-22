@@ -1,6 +1,5 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org" 
-	 xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
 <meta charset="UTF-8" />
 <title>Insert title here</title>
@@ -10,8 +9,8 @@
 <span th:text="${#authentication.principal.role}"></span>
 <span th:text="${#authentication.principal.empId}"></span>
 <a href="logout">ログアウト</a>
-<a href="/employees">社員一覧</a>
 	<h3>ジャンル一覧画面</h3>
+	<span sec:authentication="principal.name"></span>さん
 	<div th:text="${flash}" ></div>
 	<form method="post" action="/genres">
 		<label>ジャンルを入力</label>
