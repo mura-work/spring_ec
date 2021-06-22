@@ -5,7 +5,7 @@
 <meta charset="UTF-8" />
 <title>Insert title here</title>
 </head>
-<body>
+<body>	
 <span sec:authentication="principal.name"></span>さん
 	<div>編集画面</div>
 	<form th:method="patch" th:action="@{/books/{id}(id=*{id})}" th:object="${employeeForm}">
