@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.example.demo.entity.Product;
+import com.example.demo.form.ProductForm;
 import com.example.demo.repository.ProductRepository;
 
 @Service
@@ -17,4 +18,8 @@ public class ProductService {
 		return products;
 	}
 	
+	public List<Product> findName(ProductForm form){
+		List<Product> pro = repository.findByNameLike(form.getName());
+		return pro;
+	}
 }

@@ -8,7 +8,9 @@
 <span th:text="${#authentication.principal.name}"></span>
 <span th:text="${#authentication.principal.role}"></span>
 <span th:text="${#authentication.principal.empId}"></span>
+
 <a href="logout">ログアウト</a>
+<a th:href="@{/products}">商品一覧</a>
 	<h3>ジャンル一覧画面</h3>
 	<span sec:authentication="principal.name"></span>さん
 	<div th:text="${flash}" ></div>
@@ -37,8 +39,9 @@
 			<tr th:each="genre: ${genres}">
 				<td th:text="${genre.id}"></td>
 				<td th:text="${genre.name}"></td>
-				<th:block th:each="product: ${genre.products}">
+				<th:block th:each="product: ${genre.WithProducts()}">
 					<td th:text="${product.name}"></td>
+					<td><a th:href="@{/products/{id}(id=${product.id})}">詳細</a></td>
 				</th:block>
 				<td><a th:href="@{/genres/{id}/edit(id=${genre.id})}">編集</a></td>
 				<td>
