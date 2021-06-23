@@ -11,6 +11,7 @@ import com.example.demo.entity.Product;
 import com.example.demo.service.ProductService;
 
 @RestController
+@RequestMapping("/api/v1")
 public class ProductApiController {
 	@Autowired
 	ProductService service;
@@ -21,25 +22,5 @@ public class ProductApiController {
 		List<Product> products = service.findAll();
 		return products;
 	}
-	
-	@RequestMapping("/pro")
-	public Pro getPro() {
-		return new Pro("pro");
-	}
-}
 
-class Pro {
-	private String info;
-
-	public Pro(String info) {
-		this.info = info;
-	}
-
-	public String getInfo() {
-		return info;
-	}
-
-	public void setInfo(String info) {
-		this.info = info;
-	}
 }
