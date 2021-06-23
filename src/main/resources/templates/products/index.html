@@ -5,14 +5,9 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<h3>ジャンル一覧画面</h3>
-<!-- 	<div th:text="${flash}" ></div> -->
-	<!-- <div>
-		<form method="get" th:action="@{/genres/search}">
-			<input type="text" th:name="name" placeholder="検索ワードを入力" />
-			<input type="submit" value="検索" />
-		</form>
-	</div> -->
+<a href="logout">ログアウト</a>
+<a th:href="@{/products}">商品一覧</a>
+	<h3>商品一覧画面</h3>
 	<table>
 		<thead>
 			<tr>
@@ -29,6 +24,7 @@
 				<td th:text="${product.name}"></td>
 				<td th:text="${product.content}"></td>
 				<td th:text="${product.price}">円</td>
+				<td><a th:href="@{/products/{id}(id=${product.id})}">詳細</a></td>
 				<td><a th:href="@{/products/{id}/edit(id=${product.id})}">編集</a></td>
 				<td>
 					<form th:method="delete" th:action="@{/products/{id}(id=${product.id})}">

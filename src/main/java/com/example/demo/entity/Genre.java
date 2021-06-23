@@ -51,8 +51,12 @@ public class Genre {
 		this.isStatus = isStatus;
 	}
 
-	public List<Product> getProducts() {
+	private List<Product> getProducts() {
 		return products;
+	}
+	
+	public List<Product> WithProducts(){
+		return getProducts();
 	}
 
 	public void setProducts(List<Product> products) {

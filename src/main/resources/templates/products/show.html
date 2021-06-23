@@ -1,10 +1,28 @@
 <!DOCTYPE html>
-<html>
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
-<meta charset="UTF-8">
+<meta charset="UTF-8" />
 <title>Insert title here</title>
 </head>
 <body>
-
+	<a href="logout">ログアウト</a>
+<a th:href="@{/products}">商品一覧</a>
+	<table>
+		<thead>
+			<tr>
+				<th>id</th>
+				<th>名前</th>
+				<th></th>
+				<th></th>
+				<th></th>
+			</tr>
+		</thead>
+		<tbody>
+				<td th:text="${product.id}"></td>
+				<td th:text="${product.name}"></td>
+				<td th:text="${product.price}"></td>
+				<td th:text="${product.content}"></td>
+		</tbody>
+	</table>
 </body>
 </html>

@@ -48,6 +48,7 @@ public class LoginSecurityConfig extends WebSecurityConfigurerAdapter {
 	protected void configure(HttpSecurity http) throws Exception {
 		http.authorizeRequests()	 // 対象リクエストの指定
 		    .antMatchers("/regist").permitAll()//ログインフォームは許可
+		    .antMatchers("/api/v1/**").permitAll()//ログインフォームは許可
 		    .antMatchers("/h2-console/**").permitAll()
 		    .antMatchers("/login").permitAll()//test用(ユーザ登録)※終わったら消す
 		    .anyRequest().authenticated();// それ以外は全て認証無しの場合アクセス不許可

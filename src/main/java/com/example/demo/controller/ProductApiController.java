@@ -9,37 +9,21 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.example.demo.entity.Product;
 import com.example.demo.service.ProductService;
+import com.example.demo.util.DataTransformationUtil;
 
 @RestController
+@RequestMapping("/api/v1")
+@CrossOrigin
 public class ProductApiController {
 	@Autowired
 	ProductService service;
 	
 	@RequestMapping(value = "/products")
 	@CrossOrigin
-	public List<Product> index(){
+	public String index(){
 		List<Product> products = service.findAll();
-		return products;
-	}
-	
-	@RequestMapping("/pro")
-	public Pro getPro() {
-		return new Pro("pro");
-	}
-}
-
-class Pro {
-	private String info;
-
-	public Pro(String info) {
-		this.info = info;
+//		List<Product> products = service.findName(form);
+		return DataTransformationUtil.getJsonData(products);
 	}
 
-	public String getInfo() {
-		return info;
-	}
-
-	public void setInfo(String info) {
-		this.info = info;
-	}
 }
