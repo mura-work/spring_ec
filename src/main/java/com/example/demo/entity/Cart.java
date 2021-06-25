@@ -13,9 +13,9 @@ import javax.persistence.Table;
 public class Cart {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Integer cartId;
+	private Integer id;
 	
-	private Integer price;
+	private Integer count;
 	
 	@ManyToOne
 	@JoinColumn(name = "emp_id")
@@ -25,20 +25,20 @@ public class Cart {
 	@JoinColumn(name = "product_id")
 	private Product product;
 
-	public Integer getCartId() {
-		return cartId;
+	public Integer getId() {
+		return id;
 	}
 
-	public void setCartId(Integer cartId) {
-		this.cartId = cartId;
+	public void setId(Integer id) {
+		this.id = id;
 	}
 
-	public Integer getPrice() {
-		return price;
+	public Integer getCount() {
+		return count;
 	}
 
-	public void setPrice(Integer price) {
-		this.price = price;
+	public void setCount(Integer count) {
+		this.count = count;
 	}
 
 	public Employee getEmployee() {

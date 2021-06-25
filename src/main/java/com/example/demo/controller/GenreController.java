@@ -17,7 +17,7 @@ import com.example.demo.entity.Genre;
 import com.example.demo.form.GenreForm;
 import com.example.demo.repository.GenreRepository;
 import com.example.demo.service.GenreService;
-import com.example.demo.service.LoginService;
+import com.example.demo.util.LoginSession;
 
 @Controller
 public class GenreController {
@@ -27,14 +27,10 @@ public class GenreController {
 	@Autowired
 	GenreService service;
 	
-	@Autowired
-	LoginService loginService;
-	
 	@GetMapping("/genres")
 	public String index(@ModelAttribute GenreForm form, Model model, 
 			@AuthenticationPrincipal User user) {
 		model.addAttribute("genres", repository.findAll());
-		loginService.loginUser();
 		return "genres/index";
 	}
 	
