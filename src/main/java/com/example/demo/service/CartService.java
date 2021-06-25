@@ -18,9 +18,14 @@ public class CartService {
 	@Autowired
 	EmployeeRepository employeeRepository;
 	
-	public List<Cart> findByCart(){
+	public List<Cart> findALLCart(){
 //		List<Cart> carts = repository.findByEmpId(LoginSession.loginUser());
 		List<Cart> carts = repository.findByEmployee(employeeRepository.findById(1).get());
 		return carts;
+	}
+	
+	public Cart findCart(int id) {
+		Cart cart = repository.findById(id).get();
+		return cart;
 	}
 }	
